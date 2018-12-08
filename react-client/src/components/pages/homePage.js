@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { GOOGLE_KEY } from "./keys.js";
-import { dataRender } from "./keys.js";
+import { dataRender } from "./civicAPI.js";
 
 function OfficialName(props) {
   return (

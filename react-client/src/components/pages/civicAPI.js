@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+var dataRender = [];
+
 // function OfficialName(props) {
 //     return (
 //       <div>
@@ -7,3 +9,5 @@ import React, { Component } from 'react';
 //       </div>
 //     );
 //   }
+
+export {dataRender};
