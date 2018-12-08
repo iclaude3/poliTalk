@@ -1,25 +1,107 @@
+
+/* --------------- NAV BAR --------------- */
+
+/* belongs in a tag, like <header></header> */
 header {
   display: block;
-  background-color: black;
+  /* rgba(0, 0, 0, 0.041) */
+  background-color: #fff;
+  border-bottom: 2px solid #00000031;
+  /*^^ width style color */
   width: 100%;
-  height: 50px;
-  color: white;
+  height: 60px;
+  margin-top: 10px;
+  /* padding: 16px 10px 20px 10px;  */
 }
 
 #headerButtons {
   list-style-type: none;
-  margin: 0;
+  margin: auto;
   padding: 0;
+  display: inline;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
 .navButton {
-  float: right;
+  color: #000000;
+  float: left;
+  padding: 15px 2% 20px 2%;
+  margin: auto;
+}
+
+/* styling Link react tag below, bec Link gets translated to a tag */
+/* green? */
+.link, .link:visited {
+  color: rgb(92, 92, 92);
+  text-decoration: none;
+}
+.link:hover {
+  color: rgb(8, 196, 8);
+  text-decoration: none;
+}
+
+logo {
+  display: inline;
+  padding: 0 3%;
+  float: left; 
+  margin: auto;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: 'Abril Fatface', monospace;
+  color: #575757;
+}
+logo:hover {
+  color: rgb(41, 41, 41);
+}
+
+.padding15 {
+  padding: 40px;
+}
+
+/* --------------- HOME PAGE --------------- */
+.container {
+  background-image: url("/Images/polyTalk_background.png");
+  background-repeat: repeat;
+  background-color: #fff;
+  /* background-color: rgb(247, 247, 247); */
+  padding: 40px;
+  width:100%;
+  height: auto;
+}
+
+.bigText1 {
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 47px;
+  margin: 0 0 0 30px;
+  float: left;
+  text-align: right;
+  margin: 10px auto;
+}
+
+.bigText2 {
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 37px;
+  margin: 0 0 0 30px;
+  float: left;
+  text-align: right;
+}
+
+/* HELP BACKGROUND */
+body {
+  background-image: url("polyTalk_background.png");
+  background-repeat: repeat;
+  background-color: rgb(228, 26, 26);
 }
 
 footer {
   display: block;
+  border-top: 1px solid #00000010;
+  border-bottom: 1px solid #00000009;
   width: 100%;
-  height: 50px;
-  background-color: black;
-  color: white;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.027);
+  padding:40px;
 }
