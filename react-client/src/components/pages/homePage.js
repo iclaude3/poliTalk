@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { GOOGLE_KEY } from "./keys.js";
+import { dataRender } from "./keys.js";
 
 function OfficialName(props) {
   return (
@@ -35,7 +36,6 @@ class HomePage extends Component {
 
     fetch(url, {
       mode: "cors",
-      // cache: "no cache",
       credentials: "same-origin",
       headers: {
         "Content-Tyle": "application/json; charset=utf-8"
@@ -58,7 +58,7 @@ class HomePage extends Component {
     for (var key in this.state.data.officials) {
       data.push(this.state.data.officials[key]);
     }
-    var dataRender = [];
+
     for (var i = 0; i < data.length; i++) {
       dataRender.push(<OfficialName key={i} name={data[i].name} />);
     }
@@ -88,3 +88,4 @@ class HomePage extends Component {
 }
 
 export default HomePage;
+export {dataRender};
