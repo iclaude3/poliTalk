@@ -5,12 +5,6 @@
 * Oxford Dictionary API
 * ProPublica Congress API
 
-### Setting up the basic environment in Node:
-You will need to install Node globally if you do not have it installed already on your local drive:
-```
-sudo npm install -g
-```
-
 ### Installing dependencies
 Run the following command in your root directory, once this repo is cloned to your local drive, to install prescribed dependencies (located in package.json file): 
 ```
