@@ -7,10 +7,6 @@ You will need to install Node globally if you do not have it installed already o
 ```
 sudo npm install -g
 ```
-Installing Nodemon is also highly recommended as it watches for any changes that are saved and will automatically restart your application with the updated code base.
-```
-npm install nodemon -g 
-```
 
 ### Installing dependencies
 Run the following command in your root directory, once this repo is cloned to your local drive, to install prescribed dependencies (located in package.json file): 
@@ -18,7 +14,7 @@ Run the following command in your root directory, once this repo is cloned to yo
 npm install
 ```
 
-###In order to run the program on localhost:8080
+### In order to run the program on localhost:8080
 In your root directory, run the command: 
 ```
 npm run react-dev
