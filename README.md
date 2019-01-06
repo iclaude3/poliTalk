@@ -21,3 +21,6 @@ In another terminal window, run:
 ```
 npm run server-dev
 ```
+
+### Must include:
+keys.js file, with google civic API key
