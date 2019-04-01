@@ -5,8 +5,14 @@ import { dataRender } from "./civicAPI.js";
 
 function OfficialName(props) {
   return (
-    <div>
-      <p>Candidate : {props.name}</p>
+    <div class="row">
+      <img class="col-6" src={props.image} alt="<No image>" height="100" width="100" />
+      <div class="col-6">
+        <p>Candidate : {props.name}</p>
+        <p>Party: {props.party}</p>
+        <p>Office(s): {props.office}</p>
+      </div>
+      <hr />
     </div>
   );
 }
@@ -18,7 +24,7 @@ class HomePage extends Component {
       data:{}
     };
   }
-  
+
   civicAPI(event) {
     if (event.target.value.length != 5) {
       this.setState({ data: [] });
@@ -29,8 +35,7 @@ class HomePage extends Component {
       );
     }
 
-    const url = 
-    "https://www.googleapis.com/civicinfo/v2/representatives?address=" +
+    const url ="https://www.googleapis.com/civicinfo/v2/representatives?address=" +
     event.target.value +
     "&key=" + GOOGLE_KEY;
 
@@ -44,7 +49,10 @@ class HomePage extends Component {
       referrer: "no-referrer"
     })
     .then(response => {
-      if (response.status === 200) return response.json();
+      if (response.status === 200) {
+        console.log("response ok");
+        return response.json();
+      }
       else console.log("There was an error");
     })
     .then(response => {
@@ -54,31 +62,55 @@ class HomePage extends Component {
 
   render() {
     var data = [];
+    var office = [];
     console.log(this.state.data);
+    // console.log(this.state.data.offices);
+    if(this.state.data.offices != null) {
+      office = this.state.data.offices.map(obj => {
+        let data = {
+          name: obj.name,
+          officialIndices: obj.officialIndices
+        };
+        return data;
+      });
+      console.log(office);
+    }
     for (var key in this.state.data.officials) {
       data.push(this.state.data.officials[key]);
     }
+    //Add Office to data
+    for(let j = 0; j < office.length; j++) {
+      console.log("office", office[j].name, office[j].officialIndices);
+      for(let idx of office[j].officialIndices){
+        console.log("idx", idx);
+        data[idx].office = [];
+        data[idx].office.push(office[j].name);
+      }
+    }
+    console.log("rep", data);
+
+    console.log("offices", office.length, "rep", data.length);
 
     for (var i = 0; i < data.length; i++) {
-      dataRender.push(<OfficialName key={i} name={data[i].name} />);
+      dataRender.push(<OfficialName key={i} name={data[i].name} party={data[i].party} image={data[i].photoUrl} office={data[i].office} />);
     }
 
     return (
         <div className="container">
-          <div className="row"> 
+          <div className="row">
             <div className="bigText1">
               Want to vote but don't <br />
               know where to start? <br />
-              <p className="bigText2"> 
+              <p className="bigText2">
                 View your representative! <br />
                 Enter zip code: <br />
-                <input 
+                <input
                   onChange={e => this.civicAPI(e)}
                   type = "text"
                   placeholder="zip code"
                   className="text-center"
                 />
-               <Link className="button" to="/representatives">Submit</Link>
+                <Link className="button" to="/representatives">Submit</Link>
               </p>
             </div>
           </div>
