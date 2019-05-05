@@ -4,8 +4,9 @@ class Footer extends Component {
   render() {
     return (
       <footer>
-        <div>
-          Footer component
+        <div class="footer">
+          Copyright © PolyTalk 2019 <br/>
+          <a href="#">Contact Us</a>
         </div>
       </footer>
     )

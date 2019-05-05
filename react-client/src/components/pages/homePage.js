@@ -6,11 +6,11 @@ import { dataRender } from "./civicAPI.js";
 function OfficialName(props) {
   return (
     <div class="row">
-      <img class="col-6" src={props.image} alt="<No image>" height="100" width="100" />
-      <div class="col-6">
-        <p>Candidate : {props.name}</p>
-        <p>Party: {props.party}</p>
-        <p>Office(s): {props.office}</p>
+      <img class="col" src={props.image} alt="<No image>" height="100" width="100" />
+      <div class="col">
+        <p><strong>Candidate:</strong> {props.name}</p>
+        <p><strong>Party:</strong> {props.party}</p>
+        <p><strong>Office(s):</strong> {props.office}</p>
       </div>
       <hr />
     </div>
@@ -39,6 +39,8 @@ class HomePage extends Component {
     event.target.value +
     "&key=" + GOOGLE_KEY;
 
+    console.log("URL", url);
+
     fetch(url, {
       mode: "cors",
       credentials: "same-origin",
@@ -53,7 +55,11 @@ class HomePage extends Component {
         console.log("response ok");
         return response.json();
       }
-      else console.log("There was an error");
+      else {
+        console.log("There was an error", response.status, response);
+        dataRender.splice(0,dataRender.length);
+        return response.json();
+      }
     })
     .then(response => {
       this.setState({ data: response });
@@ -61,10 +67,11 @@ class HomePage extends Component {
   }
 
   render() {
+
+    /*Representative data*/
     var data = [];
     var office = [];
-    console.log(this.state.data);
-    // console.log(this.state.data.offices);
+    // console.log(this.state.data);
     if(this.state.data.offices != null) {
       office = this.state.data.offices.map(obj => {
         let data = {
@@ -87,22 +94,29 @@ class HomePage extends Component {
         data[idx].office.push(office[j].name);
       }
     }
-    console.log("rep", data);
 
+    /*Checks data by loggin to console*/
+    console.log("rep", data);
     console.log("offices", office.length, "rep", data.length);
 
+    /*Add data to be rendered*/
     for (var i = 0; i < data.length; i++) {
+      /*Check is rep has a photo, if not place photo-holder*/
+      let photoExists = typeof data[i].photoUrl !== 'undefined' ? true : false;
+      if(!photoExists) {
+        data[i].photoUrl = 'https://www.redrockmtg.com/uploads/sites/2338/public/ForMissingHeadshotsVelma_6.png';        
+      }
       dataRender.push(<OfficialName key={i} name={data[i].name} party={data[i].party} image={data[i].photoUrl} office={data[i].office} />);
     }
 
     return (
-        <div className="container">
+        <div className="container ">
           <div className="row">
             <div className="bigText1">
               Want to vote but don't <br />
-              know where to start? <br />
-              <p className="bigText2">
-                View your representative! <br />
+              know where to start? <br />      
+              <div className="bigText2">
+                View your <span className="highlight">representative</span>!<br />               
                 Enter zip code: <br />
                 <input
                   onChange={e => this.civicAPI(e)}
@@ -111,9 +125,9 @@ class HomePage extends Component {
                   className="text-center"
                 />
                 <Link className="button" to="/representatives">Submit</Link>
-              </p>
+              </div>
             </div>
-          </div>
+          </div>         
         </div>
     )
   }
