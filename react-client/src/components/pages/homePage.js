@@ -2,20 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { GOOGLE_KEY } from "./keys.js";
 import { dataRender } from "./civicAPI.js";
-
-function OfficialName(props) {
-  return (
-    <div class="row">
-      <img class="col" src={props.image} alt="<No image>" height="100" width="100" />
-      <div class="col">
-        <p><strong>Candidate:</strong> {props.name}</p>
-        <p><strong>Party:</strong> {props.party}</p>
-        <p><strong>Office(s):</strong> {props.office}</p>
-      </div>
-      <hr />
-    </div>
-  );
-}
+import Official from "../Official.js";
+// import CivicAPI from "./civicAPI.js";
 
 class HomePage extends Component {
   constructor() {
@@ -34,6 +22,8 @@ class HomePage extends Component {
         </div>
       );
     }
+
+    dataRender.splice(0,dataRender.length);
 
     const url ="https://www.googleapis.com/civicinfo/v2/representatives?address=" +
     event.target.value +
@@ -57,7 +47,6 @@ class HomePage extends Component {
       }
       else {
         console.log("There was an error", response.status, response);
-        dataRender.splice(0,dataRender.length);
         return response.json();
       }
     })
@@ -95,7 +84,17 @@ class HomePage extends Component {
       }
     }
 
-    /*Checks data by loggin to console*/
+    /* Remove irrelevant representatives*/
+    let removeOffice = ['President of the United States', 'Vice-President of the United States', 'United States Senate'];
+    data = data.filter(obj => {
+      console.log("Filter", "office", obj.office);
+      if(removeOffice.indexOf(obj.office[0]) === -1) {
+        console.log("index now found");
+        return obj;
+      }
+    });
+
+    /*Checks data by login to console*/
     console.log("rep", data);
     console.log("offices", office.length, "rep", data.length);
 
@@ -106,7 +105,7 @@ class HomePage extends Component {
       if(!photoExists) {
         data[i].photoUrl = 'https://www.redrockmtg.com/uploads/sites/2338/public/ForMissingHeadshotsVelma_6.png';        
       }
-      dataRender.push(<OfficialName key={i} name={data[i].name} party={data[i].party} image={data[i].photoUrl} office={data[i].office} />);
+      dataRender.push(<Official key={i} name={data[i].name} party={data[i].party} image={data[i].photoUrl} office={data[i].office} />);
     }
 
     return (
