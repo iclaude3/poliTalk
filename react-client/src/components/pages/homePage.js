@@ -99,8 +99,9 @@ class HomePage extends Component {
     console.log("rep", data);
     console.log("offices", office.length, "rep", data.length);
 
-    /*Add data to be rendered*/
-    for (var i = 0; i < data.length; i++) {
+    /* Add data to be rendered*/
+    for (var i = (data.length-1); i >= 0; i--) { 
+    //for (var i = 0; i < data.length; i++) {
       /*Check is rep has a photo, if not place photo-holder*/
       let photoExists = typeof data[i].photoUrl !== 'undefined' ? true : false;
       if(!photoExists) {
