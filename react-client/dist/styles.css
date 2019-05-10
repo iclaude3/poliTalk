@@ -89,6 +89,13 @@ logo:hover {
   text-align: right;
 }
 
+.bigText {
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  /* margin: 0 0 0 0; */
+}
+
 .button {
   /*background-color: #707070;*/
   color: #303030;

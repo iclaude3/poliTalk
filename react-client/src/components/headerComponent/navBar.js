@@ -21,7 +21,7 @@ class NavBar extends Component {
               </li>
               <li className="navButton">
                 <Link className="link" to="/funFact">Fun Facts</Link>
-              </li>
+              </li>              
             </ul>
         </header>
     )
