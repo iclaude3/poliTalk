@@ -86,13 +86,13 @@ class HomePage extends Component {
 
     /* Remove irrelevant representatives*/
     let removeOffice = ['President of the United States', 'Vice-President of the United States', 'United States Senate'];
-    data = data.filter(obj => {
-      console.log("Filter", "office", obj.office);
-      if(removeOffice.indexOf(obj.office[0]) === -1) {
-        console.log("index now found");
-        return obj;
-      }
-    });
+    // data = data.filter(obj => {
+    //   console.log("Filter", "office", obj.office);
+    //   if(removeOffice.indexOf(obj.office[0]) === -1) {
+    //     console.log("index now found");
+    //     return obj;
+    //   }
+    // });
 
     /*Checks data by login to console*/
     console.log("rep", data);
@@ -111,7 +111,7 @@ class HomePage extends Component {
     return (
         <div className="container ">
           <div className="row">
-            <div className="bigText1">
+            <div className="col bigText1">
               Want to vote but don't <br />
               know where to start? <br />      
               <div className="bigText2">

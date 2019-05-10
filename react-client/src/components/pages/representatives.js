@@ -115,7 +115,7 @@ class Representatives extends Component {
                     <input
                     onChange={e => this.civicAPI(e)}
                     type = "text"
-                    placeholder="zip code"
+                    placeholder="Enter zip code"
                     className="text-center"
                     />
                 </div>
