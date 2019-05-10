@@ -22,7 +22,7 @@ class HomePage extends Component {
         </div>
       );
     }
-
+    /*Empty array of reps to be rendered*/
     dataRender.splice(0,dataRender.length);
 
     const url ="https://www.googleapis.com/civicinfo/v2/representatives?address=" +
@@ -86,13 +86,13 @@ class HomePage extends Component {
 
     /* Remove irrelevant representatives*/
     let removeOffice = ['President of the United States', 'Vice-President of the United States', 'United States Senate'];
-    // data = data.filter(obj => {
-    //   console.log("Filter", "office", obj.office);
-    //   if(removeOffice.indexOf(obj.office[0]) === -1) {
-    //     console.log("index now found");
-    //     return obj;
-    //   }
-    // });
+    data = data.filter(obj => {
+      console.log("Filter", "office", obj.office);
+      if(removeOffice.indexOf(obj.office[0]) === -1) {
+        console.log("index now found");
+        return obj;
+      }
+    });
 
     /*Checks data by login to console*/
     console.log("rep", data);
