@@ -17,7 +17,7 @@ class NavBar extends Component {
                 <Link className="link" to="/bills">Bills</Link>
               </li>
               <li className="navButton">
-                <Link className="link" to="/quiz">Quiz</Link>
+                <Link className="link" to="/books">Books</Link>
               </li>
               <li className="navButton">
                 <Link className="link" to="/funFact">Fun Facts</Link>

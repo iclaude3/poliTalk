@@ -22,7 +22,7 @@ class HomePage extends Component {
         </div>
       );
     }
-
+    /*Empty array of reps to be rendered*/
     dataRender.splice(0,dataRender.length);
 
     const url ="https://www.googleapis.com/civicinfo/v2/representatives?address=" +
@@ -112,7 +112,7 @@ class HomePage extends Component {
     return (
         <div className="container ">
           <div className="row">
-            <div className="bigText1">
+            <div className="col bigText1">
               Want to vote but don't <br />
               know where to start? <br />      
               <div className="bigText2">

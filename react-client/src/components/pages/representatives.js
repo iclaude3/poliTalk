@@ -3,6 +3,7 @@ import { dataRender } from "./homePage.js";
 import { GOOGLE_KEY } from "./keys.js";
 import { Link } from 'react-router-dom';
 import Official from '../Official.js';
+// import 'tachyons';
 
 class Representatives extends Component {
 
@@ -115,13 +116,15 @@ class Representatives extends Component {
                     <input
                     onChange={e => this.civicAPI(e)}
                     type = "text"
-                    placeholder="zip code"
+                    placeholder="Enter zip code"
                     className="text-center"
                     />
                 </div>
                 <br />
                 <br />
-                {dataRender}          
+                <div className="flex">
+                    {dataRender}  
+                </div>                        
             </div>
         )
     }
