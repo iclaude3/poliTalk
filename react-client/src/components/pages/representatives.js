@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { dataRender } from "./homePage.js";
 import { GOOGLE_KEY } from "./keys.js";
 import { Link } from 'react-router-dom';
-import Official from '../Official.js';
+import Official from './Official.js';
 import 'tachyons';
 
 class Representatives extends Component {

@@ -87,8 +87,8 @@ class bills extends Component {
             <div className="container">
                 <div className="row">
                     <div className = "bigText1"> 
-                        Your stop for primary resources, <br />
-                        Enter subject to search for top 20 bills:
+                        Your Stop for Primary Resources, <br />
+                        Enter Subject to Search for Top 20 Recent Bills: <br />
                         <input
                             onChange={e => this.billsAPI(e)}
                             type = "text"
