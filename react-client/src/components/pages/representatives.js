@@ -122,6 +122,7 @@ class Representatives extends Component {
                 </div>
                 <br />
                 <br />
+                      
                 <div className="flex flex-wrap justify-around tc pa3 pa5-ns">
                     {dataRender}  
                 </div>                        
