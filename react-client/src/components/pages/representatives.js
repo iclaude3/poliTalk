@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { dataRender } from "./homePage.js";
 import { GOOGLE_KEY } from "./keys.js";
 import { Link } from 'react-router-dom';
-import Official from '../Official.js';
+import Official from './Official.js';
 // import 'tachyons';
 
 class Representatives extends Component {
@@ -111,8 +111,8 @@ class Representatives extends Component {
 
         return(
             <div className="container">             
-                <div className="bigText">
-                Find out who your representatives are: <br />
+                <div className="bigText flex flex-wrap justify-center">
+                    Find out who your representatives are: <br />
                     <input
                     onChange={e => this.civicAPI(e)}
                     type = "text"
@@ -122,7 +122,7 @@ class Representatives extends Component {
                 </div>
                 <br />
                 <br />
-                <div className="flex">
+                <div className="flex flex-wrap justify-around tc pa3 pa5-ns">
                     {dataRender}  
                 </div>                        
             </div>
