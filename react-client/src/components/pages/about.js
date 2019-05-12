@@ -49,7 +49,7 @@ class About extends Component {
                         <b>Estefenia Barron and Nouraiz Imran</b> 
                     </p>
                     <p>
-                        Nouraiz Imran goes to college of Staten Island and worked on getting your <br />
+                        Nouraiz Imran goes to college of Staten Island and worked on getting your
                         representatives to you.
                         <br />
                     </p>
