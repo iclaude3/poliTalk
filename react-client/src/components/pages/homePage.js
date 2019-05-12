@@ -105,13 +105,6 @@ class HomePage extends Component {
     });
   }
 
-  keyPress(e){
-    if(e.keyCode == 13){
-       console.log('value', e.target.value);
-       window.location = 'representatives';
-    }
-  }
-
   render() {
     return (
       <div className="container items-center">
@@ -132,7 +125,6 @@ class HomePage extends Component {
             type = "text"
             placeholder="zip code"
             className="text-center fr ml3"
-            onKeyDown={this.keyPress}
           />
           <Link className="arrow flex fn justify-center" to="/representatives"><img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-forward-512.png" height="50" width="50"/></Link>                    
         </div>
