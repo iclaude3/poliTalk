@@ -14,7 +14,7 @@ class HomePage extends Component {
   }
 
   civicAPI(event) {
-    if (event.target.value.length != 5) {
+    if (event.target.value.length != 5) {     //value user inserts
       this.setState({ data: [] });
       return (
         <div>
@@ -35,7 +35,7 @@ class HomePage extends Component {
       mode: "cors",
       credentials: "same-origin",
       headers: {
-        "Content-Tyle": "application/json; charset=utf-8"
+        "Content-Type": "application/json; charset=utf-8"
       },
       redirect: "follow",
       referrer: "no-referrer"

@@ -152,8 +152,16 @@ input {
   color: green;
 }
 
+/* ----------- FORMATTING BILLS COLUMNS ------------- */
+.billCol {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  margin: 0 0 0 30px;
+  float: left;
+  text-align: left;
+}
 
-/* HELP BACKGROUND */
+/* -------- SETTING BACKGROUND ------------- */
 body {
   background-image: url("polyTalk_background.png");
   background-repeat: repeat;
