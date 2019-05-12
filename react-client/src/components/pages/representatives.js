@@ -111,8 +111,8 @@ class Representatives extends Component {
 
         return(
             <div className="container">             
-                <div className="bigText">
-                Find out who your representatives are: <br />
+                <div className="bigText flex flex-wrap justify-center">
+                    Find out who your representatives are: <br />
                     <input
                     onChange={e => this.civicAPI(e)}
                     type = "text"
@@ -122,7 +122,8 @@ class Representatives extends Component {
                 </div>
                 <br />
                 <br />
-                <div className="flex flex-wrap justify-around">
+                      
+                <div className="flex flex-wrap justify-around tc pa3 pa5-ns">
                     {dataRender}  
                 </div>                        
             </div>
