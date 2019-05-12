@@ -88,14 +88,14 @@ class HomePage extends Component {
           return obj;
         }
       });
-
+      
       /*Checks data by login to console*/
       console.log("rep", data);
       console.log("offices", office.length, "rep", data.length);
 
       /*Add data to be rendered*/
       for (var i = 0; i < data.length; i++) {
-        /*Check is rep has a photo, if not place photo-holder*/
+        /*Check if rep has a photo, if not place photo-holder*/
         let photoExists = typeof data[i].photoUrl !== 'undefined' ? true : false;
         if(!photoExists) {
           data[i].photoUrl = 'https://www.redrockmtg.com/uploads/sites/2338/public/ForMissingHeadshotsVelma_6.png';        
