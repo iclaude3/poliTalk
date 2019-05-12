@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { GOOGLE_KEY } from "./keys.js";
 import { dataRender } from "./civicAPI.js";
 import Official from "./Official.js";
+import 'tachyons';
 // import CivicAPI from "./civicAPI.js";
 
 class HomePage extends Component {

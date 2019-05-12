@@ -3,7 +3,7 @@ import { dataRender } from "./homePage.js";
 import { GOOGLE_KEY } from "./keys.js";
 import { Link } from 'react-router-dom';
 import Official from './Official.js';
-// import 'tachyons';
+import 'tachyons';
 
 class Representatives extends Component {
 

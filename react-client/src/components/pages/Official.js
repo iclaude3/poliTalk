@@ -6,16 +6,14 @@ import { Link } from 'react-router-dom';
 
 const Official = (props) => {
   return (
-    <div class="outline w-25 pa3 mr2">
-      <img class="col" src={props.image} alt="<No image>" height="130" width="130" />
-      <div class="col">
-        <p>This candidate is <strong>{props.name}</strong>.<br />
-        Their party is the <strong>{props.party}</strong>.<br />
-        They hold the office of <strong>{props.office}</strong></p>
+    <div className="black dim db ma2 mw7 w-30 pa2 br2 ba b--black-10 shadow-1">
+      <img className="center db mt3 mw-30 br-100 ba dib" src={props.image} alt="<No image>" height="130" width="130" /> <hr />
+      <div className="col">
+        <p className="db center mb2 mw-100"><strong>Candidate: </strong>{props.name}<br />
+        <strong>Party: </strong>{props.party}<br />
+        <strong>Name: </strong>{props.office}</p>
         <Link className="" to="">Supported Bills</Link>
       </div>
-      <hr width="1" size="500"></hr>
-      <hr />
     </div>
   );
 }
