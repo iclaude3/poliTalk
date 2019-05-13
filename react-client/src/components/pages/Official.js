@@ -11,7 +11,7 @@ const Official = (props) => {
       <div className="col">
         <p className="db center mb2 mw-100"><strong>Candidate: </strong>{props.name}<br />
         <strong>Party: </strong>{props.party}<br />
-        <strong>Name: </strong>{props.office}</p>
+        <strong>Office: </strong>{props.office}</p>
         <Link className="" to="">Supported Bills</Link>
       </div>
     </div>

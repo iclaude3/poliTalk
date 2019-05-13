@@ -6,7 +6,11 @@ import Official from "./Official.js";
 import 'tachyons';
 // import CivicAPI from "./civicAPI.js";
 
+let city = "";
+let state = "";
+
 class HomePage extends Component {
+
   constructor() {
     super();
     this.state = {
@@ -47,7 +51,7 @@ class HomePage extends Component {
         return response.json();
       }
       else {
-        console.log("There was an error", response.status, response);
+        console.log("There was an error", response.status, response);        
         return response.json();
       }
     })
@@ -55,7 +59,13 @@ class HomePage extends Component {
       this.setState({ data: response });
       /*Representative data*/
       var data = [];
-      var office = [];
+      var office = [];      
+
+      if(this.state.data.normalizedInput != null) {
+        city = this.state.data.normalizedInput.city;
+        state = this.state.data.normalizedInput.state;
+    }
+
       // console.log(this.state.data);
       if(this.state.data.offices != null) {
         office = this.state.data.offices.map(obj => {
@@ -136,3 +146,5 @@ class HomePage extends Component {
 
 export default HomePage;
 export {dataRender};
+export {city}
+export {state};
