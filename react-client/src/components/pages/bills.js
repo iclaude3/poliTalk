@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { BILLS_KEY } from "./keys.js";
+import Iframe from 'react-iframe'
 import 'tachyons';
 
 // billInfo pushes to dataRender, dataRender calls Title and holds all "titles" objs, then dataRender called to be displayed in render()
@@ -8,14 +9,14 @@ import 'tachyons';
 const Title = (props) => {
     return (
         <div className="flex flex-column black db ma4 mw7 w-50 pa2 br2 ba b--black-10 shadow-1 hover">
-            <a href={props.url} target="_blank" className=" billLink dim w-100 pa3">
-                <p className="f2 lh-title">{props.number + ": " + props.shortTitle}</p><br />
+            <a href={props.url} target="_blank" className=" billLink title dim w-100 pa3">
+                <p className="f2 lh-title sumBills">{props.number + ": " + props.shortTitle}</p><br />
                 <p className="f4 lh-copy">{props.title}</p>
             </a>
             <div className="h-65 flex">
-                <div className="f4 lh-copy sumBills bt br bb b--silver w-75">
-                <strong>SUMMARY:</strong><br />
-                    <p>{props.desc}</p>
+                <div className="f4 sumMaxHeight lh-copy sumBills bt br bb b--silver w-75 ">
+                    <strong>SUMMARY:</strong><br />
+                    <p className="f3 lh-copy">{props.desc}</p>
                 </div>
                 <a href={props.sURI} target="_blank" className="f5 lh-copy billLink dim bt bb b--silver w-25">
                     <strong>Sponsor</strong><br /><hr />
@@ -25,7 +26,7 @@ const Title = (props) => {
                     <p><strong>PARTY: </strong>{props.sParty}</p>
                 </a>
             </div>
-            <div className="mw7 sumBills mh4 w-100 pa3 tc ">
+            <div className="mw9 sumBills mh4 w-100 pa5 tc ">
                 <p className="f3 lh-copy">Last action on this bill: </p>
                 <p className="f4 lh-copy ma3">{props.action}</p>
                 <p className="f6 lh-copy">{props.actionDate}</p>
@@ -38,7 +39,8 @@ class bills extends Component {
     constructor() {
         super();
         this.state = {
-          data:{}
+          data:{},
+          bill:{}
         };
     }
 
@@ -81,6 +83,8 @@ class bills extends Component {
         if (this.state.data.results != null) {
             console.log("api result", this.state.data.results);
 
+            console.log("length", this.state.data.results[0].bills.length);
+
             for (let i = 0; i < this.state.data.results[0].bills.length; i++) {
                 // console.log("title = " + this.state.data.results[0].bills[i].short_title);
                 // console.log("short title = " + this.state.data.results[0].bills[i].title);
@@ -91,6 +95,7 @@ class bills extends Component {
                     desc: this.state.data.results[0].bills[i].summary,
                     number: this.state.data.results[0].bills[i].number,
                     url: this.state.data.results[0].bills[i].congressdotgov_url,
+                    pdf: this.state.data.results[0].bills[i].gpo_pdf_uri,
                     sponsor_name: this.state.data.results[0].bills[i].sponsor_name,
                     sponsor_party: this.state.data.results[0].bills[i].sponsor_party,
                     sponsor_title: this.state.data.results[0].bills[i].sponsor_title,
@@ -102,7 +107,7 @@ class bills extends Component {
 
                 if(data.desc === "") {
                     data.desc = "No summary for this bill";
-                }
+                }     
 
                 billInfo.push(data);
             } 
@@ -116,7 +121,7 @@ class bills extends Component {
                 dataRender.push(<Title idx={i+1} number={billInfo[i].number} title={billInfo[i].title} desc={billInfo[i].desc}
                     shortTitle={billInfo[i].title_short}  url={billInfo[i].url} sName={billInfo[i].sponsor_name} sParty={billInfo[i].sponsor_party}
                     sTitle={billInfo[i].sponsor_title} sState={billInfo[i].sponsor_state} sURI={billInfo[i].sponsor_uri} action={billInfo[i].major_action} 
-                    actionDate={billInfo[i].action_date} />);
+                    actionDate={billInfo[i].action_date} pdf={billInfo[i].pdf} />);
             }
         }
 
