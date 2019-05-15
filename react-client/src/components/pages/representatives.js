@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { dataRender } from "./homePage.js";
+import HomePage, { dataRender } from "./homePage.js";
 import { GOOGLE_KEY } from "./keys.js";
 import { Link } from 'react-router-dom';
 import Official from './Official.js';
+import city from './homePage.js';
+import state from './homePage.js';
 import 'tachyons';
 
 class Representatives extends Component {
@@ -17,6 +19,8 @@ class Representatives extends Component {
     civicAPI(event) {
         if (event.target.value.length != 5) {
             this.setState({ data: [] });
+            dataRender.splice(0,dataRender.length);
+            dataRender.push(<p>Not a valid zip code</p>);
             return (
             <div>
                 <p>No Result</p>
@@ -44,10 +48,13 @@ class Representatives extends Component {
         .then(response => {
             if (response.status === 200) {
             console.log("response ok");
+            // console.log(response.json());
             return response.json();
             }
             else {
             console.log("There was an error", response.status, response);
+            dataRender.splice(0,dataRender.length);
+            dataRender.push(<p>No representatives for this location</p>);
             return response.json();
             }
         })
@@ -60,14 +67,23 @@ class Representatives extends Component {
         /*Representative data*/
         var data = [];
         var office = [];
+        let c = city;
+        let s = state;
         // console.log(this.state.data);
+        
+        /* GET CITY AND STATE */
+        if(this.state.data.normalizedInput != null) {
+            c = this.state.data.normalizedInput.city;
+            s = this.state.data.normalizedInput.state;
+        }
+
         if(this.state.data.offices != null) {
-        office = this.state.data.offices.map(obj => {
-            let data = {
-            name: obj.name,
-            officialIndices: obj.officialIndices
-            };
-            return data;
+            office = this.state.data.offices.map(obj => {
+                let data = {
+                name: obj.name,
+                officialIndices: obj.officialIndices
+                };
+                return data;
         });
         console.log(office);
         }
@@ -111,7 +127,7 @@ class Representatives extends Component {
 
         return(
             <div className="container">             
-                <div className="bigText flex flex-wrap justify-center">
+                <div className="bigText2 flex flex-wrap justify-center">
                     Find out who your representatives are: <br />
                     <input
                     onChange={e => this.civicAPI(e)}

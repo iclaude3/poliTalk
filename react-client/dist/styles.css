@@ -92,33 +92,38 @@ logo:hover {
 .bigText {
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
+  font-size: 20px;
+  text-align: center;
   /* margin: 0 0 0 0; */
+}
+
+.no-decor:hover {
+  text-decoration: none;
 }
 
 .button {
   /*background-color: #707070;*/
-  color: #303030;
+  /* color: #303030;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 6px; */
   /* border: 0.07em solid #303030; */
-  margin: 7px;
+  /* margin: 7px;
   float: right
   -moz-border-radius:27px;
 	-webkit-border-radius:27px;
   border-radius:27px;
   padding:9px 7px;
-  font-size:17px;
+  font-size:17px; */
 }
 
 .button:hover {
   /*background-color: #909090;*/
   /*color: white;*/
-  -moz-box-shadow: 2px 2px 2px 2px #C8C8C8;
+  /* -moz-box-shadow: 2px 2px 2px 2px #C8C8C8;
 	-webkit-box-shadow: 2px 2px 2px 2px #C8C8C8;
 	box-shadow: 2px 2px 2px 2px #C8C8C8;
   color: #303030;
-  text-decoration: none;
+  text-decoration: none; */
 }
 
 .arrow:hover {
@@ -152,6 +157,19 @@ input {
   color: green;
 }
 
+.cf:before, .cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
 /* ----------- FORMATTING BILLS COLUMNS ------------- */
 .billCol {
   font-family: 'Montserrat', sans-serif;
@@ -159,6 +177,40 @@ input {
   margin: 0 0 0 30px;
   float: left;
   text-align: left;
+}
+
+.billLink {
+  text-decoration: none;
+  color: black;
+}
+
+.billLink:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.billLink::after {
+  text-decoration: none;
+  color: black;
+}
+
+.sumBills {
+  overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.sumMaxHeight {
+  height: 200px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.title {
+  height:200px;
+}
+
+.hover:hover {
+  box-shadow: 2px 5px 5px 2px grey;
 }
 
 /* -------- SETTING BACKGROUND ------------- */
