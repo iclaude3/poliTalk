@@ -12,16 +12,19 @@ class NavBar extends Component {
               </li>
               <li className="navButton">
                 <Link className="link" to="/about">About</Link>
-              </li>
+              </li>                            
               <li className="navButton">
                 <Link className="link" to="/bills">Bills</Link>
               </li>
               <li className="navButton">
+                <Link className="link" to="/representatives">Representatives</Link>
+              </li>              
+              {/* <li className="navButton">
                 <Link className="link" to="/books">Books</Link>
               </li>
               <li className="navButton">
                 <Link className="link" to="/funFact">Fun Facts</Link>
-              </li>              
+              </li>               */}
             </ul>
         </header>
     )
