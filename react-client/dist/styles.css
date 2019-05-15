@@ -1,5 +1,8 @@
 
 /* --------------- NAV BAR --------------- */
+body {
+  font-family: 'Abril Fatface', monospace;
+}
 
 /* belongs in a tag, like <header></header> */
 header {
@@ -212,6 +215,27 @@ input {
 .hover:hover {
   box-shadow: 2px 5px 5px 2px grey;
 }
+
+
+/* ----------- FORMATTING ABOUT ------------- */
+
+.grey {
+  color: #383838;
+}
+
+.dark-grey {
+  color: #282828;
+}
+
+.avant-garde {
+  font-family: 'Montserrat', sans-serif; 
+  font-weight: 20;
+}
+
+.grey-back {
+  background-color: rgba(0, 0, 0, 0.027);
+}
+
 
 /* -------- SETTING BACKGROUND ------------- */
 body {

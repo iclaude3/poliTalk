@@ -73,7 +73,7 @@ class Representatives extends Component {
         
         /* GET CITY AND STATE */
         if(this.state.data.normalizedInput != null) {
-            c = this.state.data.normalizedInput.city;
+            c = this.state.data.normalizedInput.city + ',';
             s = this.state.data.normalizedInput.state;
         }
 
@@ -138,6 +138,9 @@ class Representatives extends Component {
                 </div>
                 <br />
                 <br />
+                <div className="tc f2 lh-copy">
+                    {c} {s}
+                </div>
                       
                 <div className="flex flex-wrap justify-around tc pa3 pa5-ns">
                     {dataRender}  
