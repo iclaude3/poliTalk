@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { BILLS_KEY } from "./keys.js";
-import Iframe from 'react-iframe'
+import { Reps } from "./representatives.js";
+import Iframe from 'react-iframe';
 import 'tachyons';
 
 // billInfo pushes to dataRender, dataRender calls Title and holds all "titles" objs, then dataRender called to be displayed in render()
 // Title variable is what's displayed in webpage
 const Title = (props) => {
+    function repClick(e) {
+        e.preventDefault();
+        console.log('The rep was clicked');
+    }
+
     return (
         <div className="flex flex-column black db ma4 mw7 w-50 pa2 br2 ba b--black-10 shadow-1 hover">
-            <a href={props.url} target="_blank" className=" billLink title dim w-100 pa3">
+            <a href={props.url} target="_blank" className=" billLink title dim w-100">
                 <p className="f2 lh-title sumBills">{props.number + ": " + props.shortTitle}</p><br />
                 <p className="f4 lh-copy">{props.title}</p>
             </a>
             <div className="h-65 flex">
                 <div className="f4 sumMaxHeight lh-copy sumBills bt br bb b--silver w-75 ">
-                    <strong>SUMMARY:</strong><br />
+                    <p className="f2 lh-copy">SUMMARY:</p><br />
                     <p className="f3 lh-copy">{props.desc}</p>
                 </div>
-                <a href={props.sURI} target="_blank" className="f5 lh-copy billLink dim bt bb b--silver w-25">
+                <a href="" onClick={repClick} target="_blank" className="f5 lh-copy billLink dim bt bb b--silver w-25">
                     <strong>Sponsor</strong><br /><hr />
                     <p><strong>NAME: </strong>{props.sName}</p>
                     <p><strong>STATE: </strong>{props.sState}</p>
@@ -111,6 +117,8 @@ class bills extends Component {
 
                 billInfo.push(data);
             } 
+
+            
 
             //setting dataRender the values, so dataRender can print onto the website
             for (let i = 0; i < billInfo.length; i++) {
