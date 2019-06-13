@@ -43,6 +43,7 @@ class About extends Component {
                             <p className="db center mb2 mw-100">
                             <p className="f2 lh-copy">Claudia Bandali</p>
                             Incomming software engineer at Goldman Sachs</p>
+                            <hr />
                             <a className="" target="_blank" href="https://www.linkedin.com/in/claudia-bandali/">Connect on Linkedin</a>
                         </div>
                     </div>  
@@ -52,6 +53,7 @@ class About extends Component {
                             <p className="db center mb2 mw-100">
                             <p className="f2 lh-copy">Allina Khan</p>
                             Incoming software engineer intern at Visa Inc</p>
+                            <hr />
                             <a className="" target="_blank" href="https://www.linkedin.com/in/allina-k/">Connect on Linkedin</a>
                         </div>
                     </div>
